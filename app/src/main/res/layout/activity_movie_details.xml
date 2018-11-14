@@ -5,11 +5,13 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:gravity="center_horizontal"
         android:orientation="vertical"
         tools:context=".MovieDetails">
     <ImageView
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
             android:src="@drawable/icon"
             android:contentDescription="@string/desc"
             android:layout_gravity="center_horizontal"
@@ -17,47 +19,57 @@
     <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:minHeight="30dp"
             android:text="Title:"/>
     <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="20dp"
+            android:minHeight="30dp"
             android:id="@+id/titleMovie"/>
     <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:minHeight="30dp"
             android:text="Overview:"/>
     <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="20dp"
+            android:minHeight="30dp"
             android:id="@+id/overviewMovie"/>
     <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:minHeight="30dp"
             android:text="Language:"/>
     <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="20dp"
+            android:minHeight="30dp"
             android:id="@+id/languageMovie"/>
     <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:minHeight="30dp"
             android:text="Release date:"/>
     <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="20dp"
+            android:minHeight="30dp"
             android:id="@+id/releasedateMovie"/>
     <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:minHeight="30dp"
             android:text="Suitable for children below 13:"/>
     <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="20dp"
+            android:minHeight="30dp"
             android:id="@+id/suitableMovie"/>
 
 </LinearLayout>

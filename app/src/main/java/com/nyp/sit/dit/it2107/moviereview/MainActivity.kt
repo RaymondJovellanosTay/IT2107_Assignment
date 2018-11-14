@@ -42,17 +42,24 @@ class MainActivity : AppCompatActivity() {
         val date: String = inputDate.text.toString()
 
         var langID = inputLanguage.checkedRadioButtonId
-        var lang: RadioButton = inputLanguage.findViewById(langID);
+        var lang: RadioButton = inputLanguage.findViewById(langID)
         var language: String = lang.text.toString();
 
-        val suitable: Boolean = notSuitableCheckbox.isChecked
-        var reasonViolence: String = ""
-        var reasonLanguage: String = ""
+        var suitable: Boolean = false
+        val scheck: Boolean = notSuitableCheckbox.isChecked
+        if(scheck == false)
+        {
+            suitable = true
+        }
+
+        var reason: String = ""
 
         if(languageCheckbox.isChecked)
-            reasonLanguage = "Language"
+            reason = "Language"
         if(violenceCheckbox.isChecked)
-            reasonViolence = "Violence"
+            reason = "Violence"
+        if(languageCheckbox.isChecked && violenceCheckbox.isChecked)
+            reason = "Language \nViolence"
 
         if(name.isEmpty())
             inputName.setError("Field empty")
@@ -61,15 +68,17 @@ class MainActivity : AppCompatActivity() {
         if(date.isEmpty())
             inputDate.setError("Field empty")
 
-        Toast.makeText(this,
-            "Title = $name \n" +
-                    "Overview = $description \n" +
-                    "Release date = $date \n" +
-                    "Language = $language \n" +
-                    "Suitable for all ages = $suitable \n" +
-                    "Reason: \n" +
-                    "$reasonLanguage\n" +
-                    "$reasonViolence"
-            , Toast.LENGTH_LONG).show()
+        if(name.isNotEmpty() && description.isNotEmpty() && date.isNotEmpty())
+        {
+            Toast.makeText(this,
+                "Title = $name \n" +
+                        "Overview = $description \n" +
+                        "Release date = $date \n" +
+                        "Language = $language \n" +
+                        "Suitable for all ages = $suitable \n" +
+                        "Reason: \n$reason"
+                , Toast.LENGTH_LONG).show()
+        }
+
     }
 }
