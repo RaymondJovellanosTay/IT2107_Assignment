@@ -42,6 +42,23 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:minHeight="30dp"
+            android:text="Reviews:"/>
+    <RatingBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:id="@+id/ratingBar"/>
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:minHeight="30dp"
+            android:text="No Reviews yet.\nLong press here to add your review."
+            android:id="@+id/reviewMovie"/>
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="30dp"
             android:text="Language:"/>
     <TextView
             android:layout_width="match_parent"

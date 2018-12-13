@@ -1,5 +1,7 @@
 package com.nyp.sit.dit.it2107.moviereview
 
+import java.io.Serializable
+
 class createMovie(title: String, description: String, language: String, date: String, suitable: String)
 {
     var movieTitle = title
@@ -8,3 +10,4 @@ class createMovie(title: String, description: String, language: String, date: St
     var movieDate = date
     var movieSuitable = suitable
 }
+

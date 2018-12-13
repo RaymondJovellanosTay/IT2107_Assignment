@@ -7,18 +7,44 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.RadioButton
-import android.widget.RadioGroup
-import android.widget.Toast
-import kotlinx.android.synthetic.main.activity_main.*
-import java.io.Serializable
+import kotlinx.android.synthetic.main.activity_movie_edit.*
 
-class MainActivity : AppCompatActivity() {
+
+class MovieEdit : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_movie_edit)
 
-        langEnglish.isChecked = true
+        var movie = createMovie("Avengers", "Moving about a lot of people hitting each other", "English", "2001", "Yes")
+
+        inputName.setText(movie.movieTitle)
+        inputDescription.setText(movie.movieDesc)
+        if (movie.movieLang == "English")
+        {
+            langEnglish.isChecked = true
+        }
+        else if (movie.movieLang == "Chinese")
+        {
+            langChinese.isChecked = true
+        }
+        else if (movie.movieLang == "Malay")
+        {
+            langMalay.isChecked = true
+        }
+        else if (movie.movieLang == "Tamil")
+        {
+            langTamil.isChecked = true
+        }
+        inputDate.setText(movie.movieDate)
+        if (movie.movieSuitable == "Yes")
+        {
+            notSuitableCheckbox.isChecked = false
+        }
+        else if(movie.movieSuitable == "No")
+        {
+            notSuitableCheckbox.isChecked = true
+        }
 
         violenceCheckbox.setVisibility(View.INVISIBLE)
         languageCheckbox.setVisibility(View.INVISIBLE)
@@ -37,16 +63,14 @@ class MainActivity : AppCompatActivity() {
             }
 
         }
-
     }
-
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.main, menu)
+        menuInflater.inflate(R.menu.edit, menu)
         return super.onCreateOptionsMenu(menu)
     }
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
-        if(item?.itemId == R.id.miAdd)
+        if (item?.itemId == R.id.miSave)
         {
             val name: String = inputName.text.toString()
             val description: String = inputDescription.text.toString()
@@ -95,24 +119,19 @@ class MainActivity : AppCompatActivity() {
                 myIntent.putExtra("suitable", suitable)
 
                 startActivity(myIntent)
+                finish()
             }
         }
-        else if(item?.itemId == R.id.miReset)
+        else if (item?.itemId == R.id.miCancel)
         {
-            inputName.setText("")
-            inputDescription.setText("")
-
-            var langID = inputLanguage.checkedRadioButtonId
-            var selectedLang: RadioButton = inputLanguage.findViewById(langID)
-            selectedLang.isChecked = false
-            langEnglish.isChecked = true
-
-            inputDate.setText("")
-            notSuitableCheckbox.isChecked = false
-
-            inputName.requestFocus()
+            var myIntent = Intent(this, LandingPage::class.java)
+            startActivity(myIntent)
         }
-
+        else if (item?.itemId == android.R.id.home)
+        {
+            var myIntent = Intent(this, LandingPage::class.java)
+            startActivity(myIntent)
+        }
         return super.onOptionsItemSelected(item)
     }
 }
